@@ -1,30 +1,10 @@
-' Minimal PlantUML compatibility layer for the FitLife diagrams.
-' It keeps the existing diagram files working without pulling the full C4 library.
+' Minimal compatibility layer for the FitLife diagrams.
+' Kept tiny on purpose so it works with the PlantUML version in GitHub Actions.
 
-!unquoted procedure Person($alias, $label, $descr="")
-actor "$label" as $alias
-!endprocedure
-
-!unquoted procedure System($alias, $label, $descr="")
-rectangle "$label" as $alias
-!endprocedure
-
-!unquoted procedure System_Ext($alias, $label, $descr="")
-rectangle "$label" as $alias
-!endprocedure
-
-!unquoted procedure Container_Boundary($alias, $label, $descr="")
-rectangle "$label" as $alias
-!endprocedure
-
-!unquoted procedure Container($alias, $label, $techn="", $descr="")
-rectangle "$label" as $alias
-!endprocedure
-
-!unquoted procedure Component($alias, $label, $descr="")
-rectangle "$label" as $alias
-!endprocedure
-
-!unquoted procedure Rel($from, $to, $label="")
-$from --> $to : $label
-!endprocedure
+!define Person($alias, $label, $descr="") actor "$label" as $alias
+!define System($alias, $label, $descr="") rectangle "$label" as $alias
+!define System_Ext($alias, $label, $descr="") rectangle "$label" as $alias
+!define Container_Boundary($alias, $label, $descr="") package "$label" as $alias
+!define Container($alias, $label, $techn="", $descr="") package "$label" as $alias
+!define Component($alias, $label, $descr="") component "$label" as $alias
+!define Rel($from, $to, $label="") $from --> $to : $label
